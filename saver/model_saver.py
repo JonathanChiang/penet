@@ -94,7 +94,7 @@ class ModelSaver(object):
         Returns:
             Model loaded from checkpoint, dict of additional checkpoint info (e.g. epoch, metric).
         """
-        device = 'cuda:{}'.format(gpu_ids[0]) if len(gpu_ids) > 0 else 'cpu'
+        device = 'cpu'
         ckpt_dict = torch.load(ckpt_path, map_location=device)
 
         # Build model, load parameters

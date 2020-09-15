@@ -10,13 +10,14 @@ from ct.ct_pe_constants import W_CENTER_DEFAULT, W_WIDTH_DEFAULT, CONTRAST_HU_ME
 
 
 
-def dicom_2_npy(input_study, series_description): 
+def dicom_2_npy(input_study): 
     dcm_slices = []
-
     # get all dicom files in path
-    files = glob.glob(os.path.join(input_study,"*dcm"))
+    files = glob.glob(os.path.join(os.getcwd() + input_study,"*dcm"))
+    print('trying to read files')
+    print(files)
     if len(files) == 0:
-        raise Exception("No dicom files in directory")
+        raise Exception(print('check.dcm'))
         return
 
     # read in all dcm slices 
@@ -28,8 +29,8 @@ def dicom_2_npy(input_study, series_description):
             print("error reading dicom")
             continue
         # skip dicom types that we don't want
-        if dcm.SeriesDescription != series_description: 
-            continue
+        #if dcm.SeriesDescription != series_description: 
+        #    continue
         dcm_slices.append(dcm)
 
     # check if dicoms are succesfully retrived
@@ -64,7 +65,7 @@ def format_img(img):
     """reshape, normalize image and convert to tensor"""
 
     num_slices = img.shape[0]
-    num_windows = num_slices - 24 + 1
+    num_windows = 1
 
     # rescale
     interpolation=cv2.INTER_AREA
