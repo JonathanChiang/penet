@@ -10,8 +10,8 @@ from models import *
 input_study = '/data/location/'
 series_description="CTA 2.0 CTA/PULM CE"
 ckpt_path = 'penet_best.pth.tar'
-device = 'cpu'
-map_location = 'cpu'
+device = 'cuda'
+#map_location = 'cpu'
 print("Reading input dicom...")
 study = util.dicom_2_npy(input_study)
 print('is study empty')
