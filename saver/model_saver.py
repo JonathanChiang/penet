@@ -104,6 +104,8 @@ class ModelSaver(object):
             model_fn = models.__dict__["PENetClassifier"]
         model_args = ckpt_dict['model_args']
         model = model_fn(**model_args)
+        print('device ids')
+        print(device_ids)
         model = nn.DataParallel(model, gpu_ids)
         model.load_state_dict(ckpt_dict['model_state'])
 
