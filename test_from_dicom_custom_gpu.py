@@ -23,7 +23,7 @@ print("is study window empty")
 print(study_windows)
 
 print ("Loading saved model...")
-model, ckpt_info = ModelSaver.load_model(ckpt_path, 0)
+model, ckpt_info = ModelSaver.load_model(ckpt_path, 1)
 
 print ("Sending model to GPU device...")
 #start_epoch = ckpt_info['epoch'] + 1
