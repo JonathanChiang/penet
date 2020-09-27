@@ -31,5 +31,4 @@ print ("Sending model to GPU device...")
 #start_epoch = ckpt_info['epoch'] + 1
 model = model.to(device)
 model_parallel = nn.DataParallel(model)
-num_ftrs  = model_parallel.fc
-print(num_ftrs)
+print(model_parallel)
