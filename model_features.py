@@ -4,6 +4,7 @@
 import argparse
 import util
 import torch
+import torch.nn as nn
 from saver import ModelSaver
 from models import *
 
