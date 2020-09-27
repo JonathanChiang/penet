@@ -30,9 +30,6 @@ model, ckpt_info = ModelSaver.load_model(ckpt_path, [0])
 print ("Sending model to GPU device...")
 #start_epoch = ckpt_info['epoch'] + 1
 model = model.to(device)
-
 model_parallel = nn.DataParallel(model)
-num_ftrs  = model_parallel.module.fc.in_features
-print(num_ftrs)
-
+num_ftrs  = model_parallel.module.fc
 
