@@ -32,4 +32,4 @@ print ("Sending model to GPU device...")
 model = model.to(device)
 model_parallel = nn.DataParallel(model)
 num_ftrs  = model_parallel.module.fc
-
+print(num_ftrs)
